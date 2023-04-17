@@ -1,0 +1,3 @@
+# cursosql
+
+Practicando SQL
