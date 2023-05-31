@@ -66,3 +66,39 @@ SELECT COUNT(idPaciente) FROM Paciente where apellido='Perez'
 -- Filtra los registros en la condicion que l das en un conjunto de registros
 
 SELECT estado FROM turno group by estado HAVING COUNT(estado) = 2
+
+
+-- OPERADORES
+
+-- AND
+SELECT * FROM Paciente where apellido='Perez' and nombre='roberto' and idPaciente= 7
+
+-- OR
+SELECT * FROM Paciente where apellido='Perez' or nombre='roberto' or idPaciente= 7
+
+-- IN
+-- PERMITE FILTAR POR NUMERO DE VALORES
+SELECT * FROM turno WHERE estado in (0,1,2)
+SELECT * FROM Paciente WHERE apellido IN('perez','ramirez','gonzales')
+
+-- LIKE
+SELECT * FROM Paciente where nombre like '%ober%'
+
+-- NOT permite negar un operador
+SELECT * FROM Paciente where nombre not like '%ober%'
+SELECT * FROM Paciente WHERE apellido NOT IN('perez','ramirez','gonzales')
+
+-- BETWEEN en un rango, fechas, numeros textos
+SELECT * FROM turno WHERE fechaTurno between '20200301' and '20200330 13:00:00'
+SELECT * FROM turno WHERE estado between 0 and 3
+
+-- COMBINANDO OPERADORES
+SELECT * FROM Paciente 
+where apellido='Perez' 
+and nombre='roberto' 
+or idPaciente= 7 or idPais='PER'
+
+SELECT * FROM Paciente 
+where apellido='Perez' 
+and (nombre='roberto' or idPaciente= 7 or idPais='PER') and idPaciente not in (6,3)
+
