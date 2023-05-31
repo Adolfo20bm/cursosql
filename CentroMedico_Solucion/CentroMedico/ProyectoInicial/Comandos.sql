@@ -41,5 +41,28 @@ SELECT DISTINCT idpaciente, apellido from Paciente
 SELECT * FROM Paciente GROUP BY apellido
 SELECT apellido FROM Paciente GROUP BY apellido
 
+-- FUNCION MAX Y MIN
 
+SELECT MAX(idpaciente) from Paciente
+SELECT MIN(idpaciente) from Paciente
+SELECT apellido, MAX(idpaciente) from Paciente group by apellido
 
+-- FUNCION SUM
+
+SELECT SUM(idpaciente) , apellido from Paciente group by apellido
+
+-- FUNCION AVG
+--permite calcular un promedio
+
+SELECT AVG(idpaciente) FROM Paciente
+
+-- FUNCION COUNT
+
+SELECT COUNT(*) FROM Paciente
+SELECT COUNT(idPaciente) FROM Paciente
+SELECT COUNT(idPaciente) FROM Paciente where apellido='Perez'
+
+-- FUNCION HAVING
+-- Filtra los registros en la condicion que l das en un conjunto de registros
+
+SELECT estado FROM turno group by estado HAVING COUNT(estado) = 2
